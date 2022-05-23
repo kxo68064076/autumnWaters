@@ -1,0 +1,170 @@
+/*矢量图标*/
+@font-face {
+    font-family: "iconfont"; /* Project id 1642656 */
+    src: url('iconfont.woff2?t=1649387708011') format('woff2'),
+    url('iconfont.woff?t=1649387708011') format('woff'),
+    url('iconfont.ttf?t=1649387708011') format('truetype');
+}
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+html, body {
+    /* 让body撑开整个页面 */
+    height: 100%;
+}
+body{
+
+    background: url("https://img0.baidu.com/it/u=4200074749,1662716100&fm=253&fmt=auto&app=120&f=JPEG?w=889&h=500");
+    background-size: auto 100%;
+}
+/*头部*/
+.header{
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+.header img{
+    margin: 26px 0;
+}
+.header p{margin-left: 30px;
+    position: absolute;
+    width: 167px;
+    height: 60px;
+    display: inline-block;
+    color: #757575;
+    font-size: 26px;
+    line-height: 60px;
+}
+/*    尾部广告*/
+.site-info>.container{
+    position: relative;
+    width: 1226px;
+    margin: auto auto;
+}
+.site-info>.container .info-text{
+    font-size: 12px;
+}
+.site-info>.container>.iconfont{
+    font-size: 56px;
+    color: #ff8627;
+    width: 56px;
+    height: 56px;
+    margin-right: 20px;
+    background-size: 56px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.site-info>.container .info-text .sites{
+    padding-left: 77px;
+    margin: 0;
+}
+.site-info>.container .info-text .sites a{
+    text-decoration: none;
+    color: #757575;;
+}
+.site-info>.container .info-text .sites-text{
+    padding-left: 77px;
+    margin: 0;
+    color: #b0b0b0;
+}
+.site-info>.container .info-text .sites-text a{
+    text-decoration: none;
+    color: #b0b0b0;;
+}
+.site-info>.container .info-links{
+    padding-left: 77px;
+}
+.site-info>.container .info-links a img{
+    width: auto;
+    height: 28px;
+    margin: 4px 0 15px;
+}
+/*中部*/
+.middle{
+    background-color: black;
+}
+.middle_content{
+    position: relative;
+    margin: 0 auto;
+    width: 1200px;
+    height: 737px;
+    background: url("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp1.gk100.com%2Farticle%2F20200213%2Fde8776ae3f8fd2b2.jpg&refer=http%3A%2F%2Fp1.gk100.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652012637&t=e7ea2197698011212da6c420d6de2b0e");
+}
+.mi-layout_card{
+    position: absolute;
+    width: 360px;
+    height: 51%;
+    background-color: #F6F6F6;
+    right: 66px;
+    top: 123px;
+}
+.middle_content>.mi-layout_card>.tablelist{
+    height: 75px;
+}
+.middle_content>.mi-layout_card>.tablelist a:hover {
+    background-color: #F6F6F6;
+}
+.middle_content>.mi-layout_card>.tablelist a {
+    float: left;
+    width: 50%;
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+    font-size: 26px;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #b0b0b0;
+    color: #757575;
+}
+.userlogin>.forget{
+    line-height: 20px;
+    text-align: right;
+}
+.userlogin>.forget>a {
+    color: #b0b0b0;
+    text-decoration: none;
+}
+.mi-button{
+    width: 360px;
+    position: absolute;
+    background-color: crimson;
+    bottom: 0;
+}
+.mi-button>a{
+    display: block;
+    width: 100%;
+    height: 50px;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    text-decoration: none;
+}
+.mi-button>a span{
+    font-size: 20px;
+    margin: 0 20px;
+}
+.form-group div i:first-child{
+    text-align: center;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    font-size: 23px;
+    vertical-align: middle;
+    background-color: #999999;
+}
+.form-group div input{
+    margin: 0;
+    display: inline;
+    width: 85%;
+}
+.userlogin{
+    margin: 30px 0;
+}
+.userregister{
+    margin: 30px 0;
+}

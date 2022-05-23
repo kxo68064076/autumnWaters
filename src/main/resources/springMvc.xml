@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--扫描包
+        use-default-filters  : 默认过滤器 ，扫描我们所有Bean上的注解
+            true  ： 默认扫描所有的注解（并不一定是注解）
+            false ： 根据配置进行扫描
+    -->
+    <context:component-scan base-package="com.woniu.phoneCity" use-default-filters="false">
+        <!--
+            type : 指定Spring容器过滤Bean的时候 按照注解 过滤
+            expression : 指定Spring容器扫描的具体注解
+            为什么这里只扫描Controller注解 ？？？
+            因为这个配置文件，只是给SpringMvc模块使用 ，他没有必要扫描其他的Bean
+        -->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.woniu.phoneCity.intercepter.PermissionIntercepter"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!--
+        配置视图解析器
+    -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--配置mvc：annotation-driver-->
+    <mvc:annotation-driven/>
+
+    <!--上传解析器-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!---设置属性
+                maxUploadSizePerFile : 限制一个文件的大小  kb
+                maxUploadSize  :限制上传总文件大小  kb
+                -->
+        <property name="maxUploadSizePerFile" value="5120000"/>
+        <property name="maxUploadSize" value="51200000"/>
+    </bean>
+
+    <mvc:resources mapping="/asserts/**" location="/asserts/"/>
+<!--  静态资源权限开放  -->
+    <mvc:default-servlet-handler/>
+
+    <!--AOP启动自动代理-->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+    <!--配置视图映射
+        path:在配置访问路径
+    -->
+    <mvc:view-controller path="server/mainServer" view-name="main"/>
+    <mvc:view-controller path="loginServer" view-name="back-login"/>
+    <mvc:view-controller path="server/welcome" view-name="Welcome"/>
+    <mvc:view-controller path="productList.html" view-name="product_list"/>
+    <mvc:view-controller path="userList.html" view-name="user_list"/>
+    <mvc:view-controller path="ordertList.html" view-name="order_list"/>
+</beans>

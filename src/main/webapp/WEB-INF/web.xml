@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+  <display-name>Archetype Created Web Application</display-name>
+
+  <!--配置Spring的配置文件的位置 利用全局初始化参数-->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:applicationContext.xml</param-value>
+  </context-param>
+
+  <!--配置一个监听器 解析读取Spring的配置文件-->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <!--配置一个编码过滤器-->
+  <filter>
+    <filter-name>encodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+
+    <init-param>
+      <param-name>forceRequestEncoding</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    <init-param>
+      <param-name>forceResponseEncoding</param-name>
+      <param-value>true</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!--配置一个中央控制器  SpringMvc的核心
+      将来我们从客户发送的请求 ，就会被中央控制器拦截，拦截之后，就把请求交给了Springmvc处理
+    -->
+  <servlet>
+    <servlet-name>dispatchServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <!--
+       在中央控制器中加载 SpringMvc的配置文件
+    -->
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:springMvc.xml</param-value>
+    </init-param>
+    <!--
+      所有的Servlet创建对象时 ，都是在请求的时候 创建对象 ，但是我们的中央控制器必须是服务器启动的时候就要实例化
+      因为服务器启动需要加载很多资源（包括SpringMvc的配置文件）
+      所以必须配置下面这个标签
+    -->
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>dispatchServlet</servlet-name>
+    <!--
+      配置拦截规则 ：
+      1.  /  : 拦截所有请求 ，和过滤器中 /* 有何区别，(/ : 拦截包含静态资源的所有请求  /* : 不拦截静态资源)
+      2. *.xxx : 中央控制器 拦截带有某一个后缀的请求  （不推荐）
+    -->
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.css</url-pattern>
+    <url-pattern>*.js</url-pattern>
+    <url-pattern>*.eot</url-pattern>
+    <url-pattern>*.svg</url-pattern>
+    <url-pattern>*.ttf</url-pattern>
+    <url-pattern>*.woff</url-pattern>
+    <url-pattern>*.woff2</url-pattern>
+    <url-pattern>*.jpg</url-pattern>
+  </servlet-mapping>
+
+
+</web-app>
