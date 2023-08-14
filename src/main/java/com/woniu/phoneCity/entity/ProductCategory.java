@@ -1,8 +1,10 @@
 package com.woniu.phoneCity.entity;
 
-import java.util.Date;
-import java.util.Objects;
+import lombok.EqualsAndHashCode;
 
+import java.util.Date;
+
+@EqualsAndHashCode
 public class ProductCategory {
     private  Integer id;
     private String typename;
@@ -51,19 +53,6 @@ public class ProductCategory {
 
     public void setDelete(Boolean delete) {
         isDelete = delete;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ProductCategory that = (ProductCategory) o;
-        return Objects.equals(id, that.id) && Objects.equals(typename, that.typename) && Objects.equals(gmtCreate, that.gmtCreate) && Objects.equals(gmtModified, that.gmtModified) && Objects.equals(isDelete, that.isDelete);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, typename, gmtCreate, gmtModified, isDelete);
     }
 
     @Override

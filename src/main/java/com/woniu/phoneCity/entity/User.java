@@ -3,7 +3,6 @@ package com.woniu.phoneCity.entity;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 @Data
 @Getter

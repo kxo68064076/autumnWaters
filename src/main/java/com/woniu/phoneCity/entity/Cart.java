@@ -1,7 +1,8 @@
 package com.woniu.phoneCity.entity;
 
-import java.util.Objects;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode
 public class Cart {
     private int id;
     private int userId;
@@ -59,19 +60,6 @@ public class Cart {
 
     public void setProduct(Product product) {
         this.product = product;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Cart cart = (Cart) o;
-        return id == cart.id && userId == cart.userId  && count == cart.count && Objects.equals(gmtCreate, cart.gmtCreate) && Objects.equals(gmtModify, cart.gmtModify) && Objects.equals(product, cart.product);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, userId, gmtCreate, gmtModify, count, product);
     }
 
     @Override

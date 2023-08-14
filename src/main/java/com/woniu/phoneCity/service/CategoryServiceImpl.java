@@ -11,7 +11,6 @@ public class CategoryServiceImpl implements ICategoryService{
     @Autowired
     CategoryMapper categoryMapper;
 
-    @Override
     public List<ProductCategory> findAllCategory() {
         return categoryMapper.selectAllCategory();
     }

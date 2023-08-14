@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public class PermissionIntercepter implements HandlerInterceptor {
 
-    @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //获取请求的路径
         String path = request.getServletPath();

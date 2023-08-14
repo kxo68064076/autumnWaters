@@ -1,8 +1,10 @@
 package com.woniu.phoneCity.entity;
 
-import java.util.Date;
-import java.util.Objects;
+import lombok.EqualsAndHashCode;
 
+import java.util.Date;
+
+@EqualsAndHashCode
 public class Record {
 	private int id;
 	private String username;
@@ -46,23 +48,8 @@ public class Record {
 	public void setReturnTime(Date returnTime) {
 		this.returnTime = returnTime;
 	}
-	@Override
-	public int hashCode() {
-		return Objects.hash(author, bookname, borrowTime, id, returnTime, username);
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Record other = (Record) obj;
-		return Objects.equals(author, other.author) && Objects.equals(bookname, other.bookname)
-				&& Objects.equals(borrowTime, other.borrowTime) && id == other.id
-				&& Objects.equals(returnTime, other.returnTime) && Objects.equals(username, other.username);
-	}
+
+
 	@Override
 	public String toString() {
 		return "Record [id=" + id + ", username=" + username + ", bookname=" + bookname + ", author=" + author

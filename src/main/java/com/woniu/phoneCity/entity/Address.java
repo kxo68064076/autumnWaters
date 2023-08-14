@@ -1,7 +1,8 @@
 package com.woniu.phoneCity.entity;
 
-import java.util.Objects;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode
 public class Address {
     private int id;
     private String detailAddress;
@@ -92,19 +93,6 @@ public class Address {
 
     public void setIsDelete(int isDelete) {
         this.isDelete = isDelete;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Address address = (Address) o;
-        return id == address.id && userId == address.userId && isDefault == address.isDefault && status == address.status && isDelete == address.isDelete && Objects.equals(detailAddress, address.detailAddress) && Objects.equals(receiver, address.receiver) && Objects.equals(tel, address.tel) && Objects.equals(gmtCreate, address.gmtCreate) && Objects.equals(gmtModified, address.gmtModified);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, detailAddress, receiver, tel, userId, isDefault, status, gmtCreate, gmtModified, isDelete);
     }
 
     @Override

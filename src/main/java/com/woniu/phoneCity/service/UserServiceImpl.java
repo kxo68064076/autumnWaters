@@ -14,24 +14,20 @@ public class UserServiceImpl implements IUserService{
     @Autowired
     UserMapper userMapper;
 
-    @Override
     public User findUserByUsername(String username) {
         return userMapper.selectUserByUsername(username);
     }
 
-    @Override
     public PageInfo<User> findAllUser(int nowPage, int pageSize) {
         PageHelper.startPage(nowPage,pageSize);
         List<User> users = userMapper.selectAllUser();
-        return new PageInfo<>(users);
+        return new PageInfo<User>(users);
     }
 
-    @Override
     public User findUserBykey(int id) {
         return userMapper.selectUserById(id);
     }
 
-    @Override
     public int modifyUser(User user) {
         return userMapper.updateUser(user);
     }

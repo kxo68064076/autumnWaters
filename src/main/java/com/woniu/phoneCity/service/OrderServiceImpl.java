@@ -13,10 +13,9 @@ public class OrderServiceImpl implements IOrderService{
     @Autowired
     OrderMapper orderMapper;
 
-    @Override
     public PageInfo<Order> findAllOrder(int nowPage, int pageSize) {
         PageHelper.startPage(nowPage, pageSize);
         List<Order> orders = orderMapper.selectAllOrder();
-        return new PageInfo<>(orders);
+        return new PageInfo<Order>(orders);
     }
 }

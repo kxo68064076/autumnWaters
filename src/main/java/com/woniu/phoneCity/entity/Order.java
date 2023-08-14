@@ -2,7 +2,6 @@ package com.woniu.phoneCity.entity;
 
 import lombok.*;
 
-import java.util.Objects;
 
 @Data
 @Getter
